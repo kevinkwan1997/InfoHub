@@ -57,7 +57,6 @@ async function fetchLatest() {
 function generateDiv() {
     articles.forEach(function(article) {
         index = index + 1;
-        console.log(index);
         var newDiv = document.createElement('div')
     
         var header = document.createElement('div')
