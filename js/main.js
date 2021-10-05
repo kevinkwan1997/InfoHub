@@ -43,8 +43,9 @@ function clear() {
     mainDiv.innerHTML = '';
 }
 
-function fetchLatest() {
-    var data = fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey='+ key)
+async function fetchLatest() {
+    clear();
+    var data = await fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey='+ key)
     .then(resp => resp.json())
     .then(data => {
         articles = data.articles;
@@ -102,9 +103,10 @@ function generateDiv() {
     })
 }
 
-function search(searchWord) {
+async function search(searchWord) {
+    clear();
     const starting = getMonthBackDate(); 
-    var data = fetch('https://newsapi.org/v2/everything?q=' + searchWord + '&from=' + starting + '&sortBy=popularity&apiKey=' + key)
+    var data = await fetch('https://newsapi.org/v2/everything?q=' + searchWord + '&from=' + starting + '&sortBy=popularity&apiKey=' + key)
     .then(resp => resp.json())
     .then(data => {
         articles = data.articles;
