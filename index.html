@@ -9,22 +9,27 @@
 </head>
 <body>
     <div id="article-full">
-        <button id="close-full"></button>
-        <h2 id="title-full"></h2>
-        <div id="desc-wrapper">
-            <h3 id="desc-full" class="description"></h3>
-            <img src="" alt="" id="desc-img">
+        <div id="article-container" class="fade">
+            <button id="close-full"></button>
+            <h2 id="title-full"></h2>
+            <div id="desc-wrapper">
+                <h3 id="desc-full" class="description"></h3>
+                <img src="" alt="No image available" id="desc-img">
+            </div>
         </div>
+
 
         <p id="text-full"></p>
         <a id="link-full" href="">Link to article</a>
     </div>
     <div id="main-grid-container">
         <div id="header">
-            <h1>Morning</h1>
+            <h1>The Tea</h1>
         </div>
         <div id="menu">
+            <li id="search"><input id="search-bar" type="text" placeholder="Search topics/articles"></li>
             <ul id="menu-list">
+                
                 <li class="menu-item" id="home">Home</li>
                 <li class="menu-item" id="latest">Latest News</li>
                 <li class="menu-item" id="about">About</li>
@@ -33,11 +38,10 @@
                         Clear Screen
                     </button>
                 </li>
-                <li class="menu-item" id="search"><input id="search-bar" type="text" placeholder="Search topics/articles"></li>
+
             </ul>
         </div>
         <div id="main">
-
         </div>
         <div id="right">
             <div class="card">
@@ -63,10 +67,13 @@
         <div id="footer">
             <h2 id="location"></h2>
             <div id="climate">
-                <h2 id="weather-type"></h2><img id="weather-icon" src="" alt="">
-                <p id="weather-desc"></p>
-                <p id="temperature"></p>
-                <p id="humidity"> </p>
+
+                    <img id="weather-icon" src="" alt=""> <h2 id="weather-type"></h2>
+
+                    <p id="weather-desc"></p>
+                    <p id="temperature"></p>
+                    <p id="humidity"> </p>
+
             </div>
 
 

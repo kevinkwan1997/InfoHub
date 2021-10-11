@@ -8,13 +8,20 @@ const fullArticle = document.getElementById('article-full');
 const closeFullBtn = document.getElementById('close-full');
 const searchBar = document.getElementById('search-bar');
 const clearBtn = document.getElementById('clear');
+const homeBtn = document.getElementById('home');
+let allHomeBtns = document.querySelectorAll('home-btn');
 
 
 
 let index = 0;
 
+let category = '';
+
 let articles = [];
 
+window.addEventListener('DOMContentLoaded', (e) => {
+    generateHome();
+})
 
 latest.addEventListener('click', (event) => {
     fetchLatest();
@@ -35,6 +42,11 @@ searchBar.addEventListener('keydown', (e) => {
 
 clearBtn.addEventListener('click', () => {
     clear();
+})
+
+homeBtn.addEventListener('click', () => {
+    clear();
+    generateHome();
 })
 
 
@@ -131,6 +143,38 @@ function openArticle() {
 function closeArticle() {
     fullArticle.style.display = 'none';
 }
+
+function generateHome() {
+    const newUl = document.createElement('ul');
+    newUl.id = 'categories';
+    newUl.classList.add('home-screen');
+
+    const categories = ['General', 'Technology', 'Science', 'Sports', 'Business', 'Health', 'Entertainment']
+    for(let i = 0; i < categories.length; i++) {
+        let newLi = document.createElement('li');
+        newLi.classList.add('home')
+        newLi.innerText = categories[i];
+        newLi.addEventListener('click', event => {
+            console.log(event);
+            topic = newLi.innerText;
+            console.log(topic);
+            makeRequestOnCategory(topic);
+        })
+        newUl.appendChild(newLi);
+    }
+    mainDiv.appendChild(newUl);
+}
+
+async function makeRequestOnCategory(category) {
+    clear();
+    var data = await fetch('https://newsapi.org/v2/top-headlines?country=us&category='+ category +'&apiKey=' + key)
+    .then(resp => resp.json())
+    .then(data => {
+        articles = data.articles;
+    })
+    generateDiv();
+}
+
 
 
     

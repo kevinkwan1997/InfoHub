@@ -56,7 +56,6 @@ body {
 
 #menu {
     grid-area: menu;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 10px 0px;
     justify-items: center;
     border-radius: 15px;
 }
@@ -86,9 +85,15 @@ body {
 
 #footer {
     grid-area: foot;
-    background-color: rgb(196, 196, 196);
+    color: white;
     border-radius: 15px;
     padding: 10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-blend-mode: multiply;
+    background-color: rgb(129, 129, 129);
+    cursor: pointer;
 }
 
 
@@ -129,8 +134,9 @@ body {
     transition: 0.1s ease-out;
 }
 
-.menu-item:nth-child(5):hover {
-    transform: none;    
+#search {
+    display: flex;
+    height: 35px;
 }
 
 #search-bar {
@@ -139,6 +145,33 @@ body {
 
 
 /* main */ 
+
+.home {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    margin-bottom: 10px;
+    background-color: rgb(89, 89, 114);
+    border-radius: 4px;
+    width: 80%;
+    color: white;
+}
+
+.home:hover {
+    color: black;
+    background-color: white;
+    transition: 0.2s ease-out;
+    box-shadow: rgba(100, 100, 111, 0.7) 0px -7px -10px 0px;
+}
+
+#categories {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 .article {
     margin: 25px;
@@ -154,13 +187,18 @@ body {
     transition: 0.8s ease-in-out;
 }
 
+#article-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 #article-full {
     flex-direction: column;
     border-radius: 15px;
     padding: 25px;
     background-color: white;
     z-index: 2;
-    display: none;
     position: absolute;
     transition: 0.2s ease-in;
     width: 75%;
@@ -168,14 +206,17 @@ body {
     max-height: 600px;
     height: 75%;
     overflow-y: scroll;
+    border: 1px black solid;
+    scrollbar-width: none;
+    display: none;
 }
+
 
 #close-full {
     position: relative;
     width: 25px;
     height: 25px;
     background-color: rgb(173, 48, 48);
-    right: 1%;
     padding: 10px;
 }
 
@@ -205,6 +246,7 @@ body {
     background-color: rgb(102, 102, 153);
     border-radius: 4px;
     padding: 5px;
+    font-style: italic;
 }
 
 #desc-full {
@@ -214,11 +256,13 @@ body {
 #desc-wrapper {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 #desc-img {
-    max-width: 250px;
-    max-height: 150px;
+    max-width: 300px;
+    max-height: 200px;
     height: auto;
     margin: 10px;
 }
@@ -248,6 +292,47 @@ body {
     width: 50px;
 }
 
+#weather-type {
+    margin: 0;
+    font-size: 18px;
+}
+
+#weather-desc, #temperature {
+    margin: 0;
+}
+
+.weather-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* weather */
+
+#hourly-list {
+    padding: 0;
+}
+.hour-element {
+    margin: 10px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-color: rgb(184, 184, 184);
+    padding-right: 10px;
+}
+
+.hour-element p {
+    width: 25%;
+    text-align: center;
+}
+
+.hour-element img {
+    width: 25%;
+}
+
 #climate {
     display: flex;
     align-items: center;
@@ -257,17 +342,28 @@ body {
 #location {
     margin: 0;
     padding: 0;
-    text-align: center;
     font-size: 18px;   
     font-weight: lighter;
 }
 
+#temperature {
+    font-size: 18px;
+}
+
+/* effects */
+
+
+
 /* screen sizes */
 
 @media screen and (max-width: 628px) {
+
+    #right {
+        display: none;
+    }
     #main-grid-container {
         grid-template-columns: 1fr;
-        grid-template-rows: 0.5fr 0.5fr 1.5fr 1fr 1fr;
+        grid-template-rows: 0.5fr 0.75fr 1fr 1fr 1.25fr;
         grid-auto-columns: 0;
         grid-auto-rows: 0;
         grid-template-areas: 
@@ -277,8 +373,9 @@ body {
         "main"
         "menu";
         justify-content: center;
+        padding: 15px;
         min-width: unset;
-        grid-gap: 5px;
+        grid-gap: 15px;
         height: 90%;
         width: 90%;
     }
