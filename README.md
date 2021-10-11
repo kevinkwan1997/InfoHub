@@ -5,10 +5,10 @@ Personal application for keeping up to date on news, recent events, weather, etc
 npm install
 npm run serve
 
-#APIs used: 
-  OpenWeatherMap
+# APIs used: 
+  OpenWeatherMap,
   NewsAPI
   
-#Latest Change 10/11/2021
-  Added full weather view with hourly data for the next 48 hours
+# Changes 
+  10/11/2021: Added full weather view with hourly data for the next 48 hours
   
