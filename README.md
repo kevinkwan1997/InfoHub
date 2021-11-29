@@ -20,5 +20,9 @@ start index.html
   NewsAPI
   
 # Changes 
-  10/11/2021: Added full weather view with hourly data for the next 48 hours
+  10/11/2021: Added full weather view with hourly data for the next 48 hour
   
+# Reflections
+
+- I set out to gain a deep understanding of JavaScript. Before completing the project, I was getting too used to frameworks, and wanted to do a deep-dive to achieve mastery of JavaScript. In order to do that, I wanted to create a Single-Page Application that would function similarly to component-based frameworks like Vue and React using pure JavaScript. 
+- I definitely could've consumed the APIs more efficiently, but it was all a part of the learning experience! 
